@@ -6,10 +6,14 @@ class ProblemsController  < ApplicationController
     # otherwise
     #==================================
     number = 23
+    if number < 11
+        @result = true
+    else
+        @result = false
+        render 'problem'
+    end
 
-    @result = "replace this string with your answer"
-    render 'problem'
-  end
+end
 
   def num_2
     #=== Instructions ======================
@@ -18,9 +22,13 @@ class ProblemsController  < ApplicationController
     # "not instructor" otherwise
     #==================================
     name = "Bob"
-
-    @result = "replace this string with your answer"
+if
+    name == "Arjun"
+    @result = "instructor"
+    else
+    @result = "not instructor"
     render 'problem'
+end
   end
 
   def num_3
@@ -32,9 +40,14 @@ class ProblemsController  < ApplicationController
     #==================================
     money = 73000
 
-    @result = "replace this string with your answer"
+if money > 75000
+    @result = "no further effect on happiness"
+else
+    @result = "some effect on happiness"
     render 'problem'
   end
+end
+
 
   def num_4
     #=== Instructions ======================
@@ -45,9 +58,17 @@ class ProblemsController  < ApplicationController
     #==================================
     activity = "cleaning"
 
-    @result = "replace this string with your answer"
-    render 'problem'
+if
+    activity == "napping"
+    @result = "the best"
+    elsif
+     activity == "cleaning"
+    @result = "the worst"
+else
+    @result = "meh"
   end
+    render 'problem'
+end
 
   def num_5
     #=== Instructions ======================
@@ -57,8 +78,16 @@ class ProblemsController  < ApplicationController
     #==================================
     score = 82
 
-    @result = "replace this string with your answer"
+if score >= 89
+    @result = "A"
+elsif score > 79
+    @result = "B"
+else
+    @result = "C"
+
+end
     render 'problem'
+
   end
 
   def num_6
@@ -71,9 +100,21 @@ class ProblemsController  < ApplicationController
     #==================================
     food = "cake shake"
 
-    @result = "replace this string with your answer"
+    if
+        food == "fruit"
+        @result = "healthy"
+    elsif
+        food == "vegetables"
+        @result = "healthy"
+    elsif
+        food == "Lucky Charms"
+        @result = "unhealthy"
+    elsif
+        food == "cake shake"
+        @result = "heart attack"
+    end
     render 'problem'
-  end
+end
 
   def num_7
     #=== Instructions ======================
@@ -93,6 +134,34 @@ class ProblemsController  < ApplicationController
     # You'll need to create a new view
     #==================================
 
-    render 'problem'
+
+
+    render 'display_form_1'
   end
+
+
+ # - If the user enters "good", respond with
+    # "That's great!"
+    # - If the user enters "not good", respond with
+    # "Bummer"
+    # - For all other cases, respond with "I see..."
+    #
+    # Bonus: Add more elsif statments to catch
+    # other cases
+    # Another Bonus: Process user input so
+    # capitalization doesn't affect your response
+def num_7_process
+@feeling = params["feeling"].downcase
+
+if @feeling == "good"
+@return = "That's great"
+elsif @feeling == "not good"
+@return = "bummer"
+elsif
+    @return = "I see..."
+
+end
+render "problem"
+end
+
 end
